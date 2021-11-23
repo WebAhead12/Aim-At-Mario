@@ -1,0 +1,15 @@
+.weapon {
+  border: solid 1px black;
+  width: 25%;
+  /* height: 25%; */
+}
+.weaponsOff {
+  width: 100%;
+  /* flex-direction: column; */
+}
+.weaponSelector {
+  /* width: 25%; */
+  top: 50px;
+  position: absolute;
+  border: solid 1px black;
+}
