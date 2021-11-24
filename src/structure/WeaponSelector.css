@@ -1,16 +1,45 @@
 .weapon {
   border: solid 1px black;
   /* width: 25%; */
-  /* height: 25%; */
+  height: 25%;
 }
-.weaponsOff {
+.weapons {
   width: 100%;
   display: flex;
   flex-direction: column;
 }
-.weaponSelector {
+
+.weaponSelectorOn,
+.weaponSelectorOff {
   /* width: 25%; */
-  top: 50px;
+  top: 10%;
+  height: 80vh;
   position: absolute;
+  overflow: auto;
   border: solid 1px black;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  transition: all 0.5s ease-in-out;
+}
+.weaponSelectorOff {
+  transform: translateX(-100%);
+}
+
+.toggleWeaponSelectorOn,
+.toggleWeaponSelectorOff {
+  cursor: pointer;
+  top: 10%;
+  left: 502px;
+  position: absolute;
+  font-size: 50px;
+  border-radius: 50%;
+  transition: all 0.5s ease-in-out;
+}
+.toggleWeaponSelectorOff {
+  left: 0;
+}
+
+.weaponSelectorOn::-webkit-scrollbar,
+.weaponSelectorOff::-webkit-scrollbar {
+  display: none;
 }

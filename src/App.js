@@ -4,7 +4,8 @@ import WeaponSelector from "./structure/WeaponSelector.jsx";
 
 function App() {
   const [shown, setShown] = React.useState(false);
-  return <WeaponSelector shown={shown} setShown={setShown}></WeaponSelector>;
+  const [count, setCount] = React.useState(0);
+  return <WeaponSelector shown={shown} setShown={setShown} count={count} setCount={setCount}></WeaponSelector>;
 }
 
 export default App;

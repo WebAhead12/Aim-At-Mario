@@ -1,18 +1,10 @@
 import React from "react";
-const imagenames = ["gun1", "gun2", "gun3", "gun4", "gun5", "gun6"];
-// const images = importAll(require.context("./images", false, /\.(png|jpe?g|svg)$/));
+const imagenames = ["gun1.png", "gun2.png", "gun3.png", "gun4.png", "gun5.png", "gun6.png"];
 
 function CreateWeapon() {
   return imagenames.map((gun) => {
-    return <img className="weapon" key={gun} src={require(gun + ".png")} alt=""></img>;
+    return <img className="weapon" key={gun} src={`images/${gun}`} alt=""></img>;
   });
 }
-// function importAll(r) {
-//   let images = {};
-//   r.keys().map((item, index) => {
-//     return (images[item.replace("./", "")] = r(item));
-//   });
-//   return images;
-// }
+
 export default CreateWeapon;
-// images[gun + ".png"].default
