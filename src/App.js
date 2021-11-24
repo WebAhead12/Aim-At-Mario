@@ -1,23 +1,17 @@
-import logo from "./logo.svg";
 import "./App.css";
-
+import React from "react";
+import WeaponSelector from "./structure/WeaponSelector.jsx";
+import Target from "./target.jsx";
 function App() {
+  const [shown, setShown] = React.useState(false);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React with
-        </a>
-      </header>
+    <div>
+      <div className="target">
+        <Target />
+      </div>
+      <div className="weaponSelector">
+        <WeaponSelector shown={shown} setShown={setShown}></WeaponSelector>;
+      </div>
     </div>
   );
 }
