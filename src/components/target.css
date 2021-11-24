@@ -14,5 +14,20 @@
   margin: auto;
   border: 2px solid grey;
   height: 500px;
+  width: 70%;
+  position: absolute;
   background-color: rgb(73, 73, 184);
+}
+
+.gameBoard:nth-child(1) {
+  left: 10px;
+  top: 20px;
+}
+.gameBoard:nth-child(3) {
+  left: 20px;
+  top: 90px;
+}
+.gameBoard:nth-child(4) {
+  left: -10px;
+  top: 10px;
 }
