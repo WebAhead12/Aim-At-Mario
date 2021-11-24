@@ -1,0 +1,18 @@
+.Target {
+  border: 2px solid black;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  background-size: 100% 100%;
+  margin-left: 10px;
+  background-image: url("https://avatars.githubusercontent.com/u/24195641?v=4");
+}
+
+.gameBoard {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  border: 2px solid grey;
+  height: 500px;
+  background-color: rgb(73, 73, 184);
+}

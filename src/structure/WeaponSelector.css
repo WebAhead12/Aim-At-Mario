@@ -11,7 +11,7 @@
 
 .weaponSelectorOn,
 .weaponSelectorOff {
-  /* width: 25%; */
+  background-color: white;
   top: 10%;
   height: 80vh;
   position: absolute;
