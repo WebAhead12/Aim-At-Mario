@@ -1,14 +1,17 @@
 import React from "react";
 import "./target.css";
 
-function Target({ hehe, func }) {
+function Target({ func }) {
   const [show, setShow] = React.useState(true);
+  const position = generateRandomPosition();
+  console.log(position.x + " " + position.y);
   if (!show) {
     return "";
   }
 
   return (
     <div
+      style={{ left: position.x + "px", top: position.y + "px" }}
       className="Target"
       onClick={(e) => {
         e.stopPropagation();
@@ -59,7 +62,11 @@ function Game(props) {
   );
 }
 
-// function stopCreation(myvar) {
-//   clearInterval(myvar);
-// }
+function generateRandomPosition() {
+  // const gameBoard = document.getElementById("gameBoard");
+  const x = Math.random() * (1000 - 77);
+  const y = Math.random() * (500 - 77);
+  console.log(x + " " + y);
+  return { x: x, y: y };
+}
 export default Game;
