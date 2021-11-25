@@ -3,8 +3,8 @@ import React from "react";
 import WeaponSelector from "./structure/WeaponSelector.jsx";
 import Game from "./components/Targets.jsx";
 function App() {
-  const [shown, setShown] = React.useState(false);
-  const [score, setScore] = React.useState(0);
+  const [shown, setShown] = React.useState(false); //toggleWeapoinSelector
+  const [score, setScore] = React.useState(0); //keeping track of score
   const [count, setCount] = React.useState(0);
   const [startGame, setStartGame] = React.useState(false);
   return (
