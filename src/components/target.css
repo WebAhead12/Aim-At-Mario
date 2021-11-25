@@ -6,17 +6,17 @@
   height: 75px;
   background-size: 100% 100%;
   margin-left: 10px;
+  position: absolute;
   background-image: url("https://avatars.githubusercontent.com/u/24195641?v=4");
 }
 
 .gameBoard {
+  background-blend-mode: soft-light, normal;
   position: relative;
-  display: flex;
-  flex-wrap: wrap;
   margin: auto;
-  width: 1000px;
-  padding: 10px;
+  left: 15%;
   border: 2px solid grey;
   height: 500px;
+  width: 1000px;
   background-color: rgb(73, 73, 184);
 }
