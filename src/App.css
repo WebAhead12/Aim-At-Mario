@@ -14,5 +14,7 @@ body::-webkit-scrollbar {
   background-color: white;
   font-family: "Orbitron", sans-serif;
   padding: 50px;
+  cursor: pointer;
+
   font-size: 70px;
 }

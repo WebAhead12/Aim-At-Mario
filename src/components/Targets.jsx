@@ -34,6 +34,16 @@ function Game(props) {
       </div>
     );
   }
+  if (props.score == 30) {
+    return (
+      <div className="lose">
+        <div className="gameOver">You Won</div>
+        <a className="startOver" href="/">
+          Play Again
+        </a>
+      </div>
+    );
+  }
   function Miss() {
     return <div className="miss">no</div>;
   }
