@@ -43,3 +43,11 @@
 .weaponSelectorOff::-webkit-scrollbar {
   display: none;
 }
+
+.currentGun {
+  margin: auto;
+  left: 33%;
+  bottom: 10%;
+  position: absolute;
+  transform: scaleX(-1) skewY(-25deg);
+}

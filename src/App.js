@@ -9,11 +9,17 @@ function App() {
 
   return (
     <div>
+      <h1>Aim At Mario</h1>
       <div className="target">
         <Game score={score} setScore={setScore} />
       </div>
       <div className="weaponSelector">
-        <WeaponSelector shown={shown} setShown={setShown} count={count} setCount={setCount}></WeaponSelector>
+        <WeaponSelector
+          shown={shown}
+          setShown={setShown}
+          count={count}
+          setCount={setCount}
+        ></WeaponSelector>
       </div>
     </div>
   );

@@ -5,29 +5,22 @@
   height: 100px;
   background-size: 100% 100%;
   margin-left: 10px;
+  position: absolute;
   background-image: url("https://avatars.githubusercontent.com/u/24195641?v=4");
 }
 
 .gameBoard {
-  display: flex;
-  flex-wrap: wrap;
+  background-blend-mode: soft-light, normal;
+  position: relative;
   margin: auto;
+  left: 15%;
   border: 2px solid grey;
   height: 500px;
-  width: 70%;
-  position: absolute;
+  width: 1000px;
   background-color: rgb(73, 73, 184);
 }
 
-.gameBoard:nth-child(1) {
+.gameBoard:nth-child(2) {
   left: 10px;
   top: 20px;
-}
-.gameBoard:nth-child(3) {
-  left: 20px;
-  top: 90px;
-}
-.gameBoard:nth-child(4) {
-  left: -10px;
-  top: 10px;
 }

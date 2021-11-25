@@ -6,12 +6,14 @@ function Target({ hehe, func }) {
   if (!show) {
     return "";
   }
+
   return (
     <div
       className="Target"
       onClick={(e) => {
         e.stopPropagation();
         setShow(false);
+
         func();
       }}
     ></div>
@@ -26,14 +28,26 @@ function Game(props) {
   const removescore = () => props.setScore(props.score - 5);
 
   return (
-    <div className="gameBoard" style={{ margin: "100px" }} onClick={removescore} width="1000px" height="1000px" padding="10px">
-      <div>score: {props.score}</div>
-      <Target func={addscore} />
-      <Target func={addscore} />
-      <Target func={addscore} />
-      <Target func={addscore} />
-      <Target func={addscore} />
-      <Target func={addscore} />
+    <div>
+      <div
+        className="gameBoard"
+        style={{ margin: "100px" }}
+        onClick={removescore}
+        width="1000px"
+        height="1000px"
+        padding="10px"
+      >
+        <div>score: {props.score}</div>
+        <Target func={addscore} />
+        <Target func={addscore} />
+        <Target func={addscore} />
+        <Target func={addscore} />
+        <Target func={addscore} />
+        <Target func={addscore} />
+      </div>
+      <div className="onScreenGun">
+        <img src={`images/${props.gun}`}></img>
+      </div>
     </div>
   );
 }

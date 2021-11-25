@@ -4,7 +4,7 @@ import CreateWeapon from "../components/CreateWeapon.jsx";
 
 function WeaponSelector({ count, setCount, shown, setShown }) {
   const [arr, setarr] = React.useState([]);
-
+  const [currentgun, setGun] = React.useState(0);
   React.useEffect(() => {
     const interval = setInterval(() => {
       setCount((count) => count + 2);
@@ -19,7 +19,13 @@ function WeaponSelector({ count, setCount, shown, setShown }) {
 
   console.log("5ra", arr.length);
   function TestDiv() {
-    return shown ? <div className="test">{count}</div> : arr.length > 10 ? <div className="test">Stopped</div> : <div className="test">{count}</div>;
+    return shown ? (
+      <div className="test">{count}</div>
+    ) : arr.length > 10 ? (
+      <div className="test">Stopped</div>
+    ) : (
+      <div className="test">{count}</div>
+    );
   }
   return (
     <main>
@@ -34,9 +40,10 @@ function WeaponSelector({ count, setCount, shown, setShown }) {
       </div>
       <div className={shown ? "weaponSelectorOn" : "weaponSelectorOff"}>
         <div className="weapons">
-          <CreateWeapon></CreateWeapon>
+          <CreateWeapon currentgun={currentgun} setGun={setGun} />
         </div>
       </div>
+      <img className="currentGun" src={`images/${currentgun}`} alt=""></img>
     </main>
   );
 }
