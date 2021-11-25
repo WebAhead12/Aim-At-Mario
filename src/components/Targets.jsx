@@ -49,7 +49,27 @@ function Game(props) {
     return () => clearInterval(intervalRef.current);
   }, []);
   if (props.score < 0) {
-    return <div>end game</div>;
+    return (
+      <div className="lose">
+        <div className="gameOver">Game Over</div>
+        <a className="startOver" href="/">
+          Start Over
+        </a>
+      </div>
+    );
+  }
+  if (props.score == 30) {
+    return (
+      <div className="lose">
+        <div className="gameOver">You Won</div>
+        <a className="startOver" href="/">
+          Play Again
+        </a>
+      </div>
+    );
+  }
+  function Miss() {
+    return <div className="miss">no</div>;
   }
   const addscore = () => props.setScore((prevScore) => prevScore + 5);
   const removescore = () => props.setScore((prevScore) => prevScore - 5);
@@ -63,9 +83,6 @@ function Game(props) {
               return <Element id={index} key={index}></Element>;
             })
           : null}
-      </div>
-      <div className="onScreenGun">
-        <img src={`images/${props.gun}`}></img>
       </div>
     </div>
   );

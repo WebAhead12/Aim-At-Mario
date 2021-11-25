@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:regular,bold,italic&subset=latin,latin-ext");
+
 .Target {
   position: absolute;
   border: 2px solid black;
@@ -19,4 +21,42 @@
   height: 500px;
   width: 1000px;
   background-color: rgb(73, 73, 184);
+}
+
+.gameBoard:nth-child(2) {
+  left: 10px;
+  top: 20px;
+}
+
+.score {
+  font-family: "Orbitron", sans-serif;
+  position: absolute;
+  left: 40%;
+  font-size: 40px;
+  z-index: 10;
+}
+.gameOver {
+  font-family: "Orbitron", sans-serif;
+  font-size: 100px;
+  text-align: center;
+  margin-top: 15%;
+  /* position: absolute;
+  bottom: 50%;
+  left: 35%; */
+}
+
+.startOver {
+  font-family: "Orbitron", sans-serif;
+  font-size: 80px;
+  position: absolute;
+  left: 35%;
+}
+
+.lose {
+  width: 1000px;
+  background: rgb(223, 54, 54);
+  height: 280px;
+  margin: auto;
+  justify-content: center;
+  text-align: center;
 }

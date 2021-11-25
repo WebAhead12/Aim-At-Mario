@@ -16,7 +16,7 @@ function WeaponSelector({ count, setCount, shown, setShown }) {
       </div>
       <div className={shown ? "weaponSelectorOn" : "weaponSelectorOff"}>
         <div className="weapons">
-          <CreateWeapon currentgun={currentgun} setGun={setGun} />
+          <CreateWeapon currentgun={currentgun} setGun={setGun} shown={shown} setShown={setShown} />
         </div>
       </div>
       <img className="currentGun" src={`images/${currentgun}`} alt=""></img>

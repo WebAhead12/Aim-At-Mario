@@ -11,8 +11,10 @@
 
 .weaponSelectorOn,
 .weaponSelectorOff {
-  background-color: white;
+  background-color: rgba(73, 73, 184, 0.466);
   top: 10%;
+  cursor: pointer;
+
   height: 80vh;
   position: absolute;
   overflow: auto;
@@ -46,8 +48,8 @@
 
 .currentGun {
   margin: auto;
-  left: 33%;
-  bottom: 10%;
+  left: 63%;
+  bottom: 2%;
   position: absolute;
   transform: scaleX(-1) skewY(-25deg);
 }

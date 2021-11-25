@@ -1,11 +1,20 @@
 h1 {
   text-align: center;
+  font-family: "Orbitron", sans-serif;
+  font-size: 50px;
+}
+body::-webkit-scrollbar {
+  display: none;
 }
 .startGame {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 40%;
+  left: 40%;
   border: solid 1px black;
   background-color: white;
-  padding: 5px;
+  font-family: "Orbitron", sans-serif;
+  padding: 50px;
+  cursor: pointer;
+
+  font-size: 70px;
 }
