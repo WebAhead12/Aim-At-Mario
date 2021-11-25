@@ -1,13 +1,16 @@
 import React from "react";
 import "./target.css";
 
-function Target({ hehe, func }) {
+function Target({ func }) {
   const [show, setShow] = React.useState(true);
+  const position = generateRandomPosition();
+  console.log(position.x + " " + position.y);
   if (!show) {
     return "";
   }
   return (
     <div
+      style={{ top: position.x + "px", left: position.y + "px" }}
       className="Target"
       onClick={(e) => {
         e.stopPropagation();
@@ -26,7 +29,7 @@ function Game(props) {
   const removescore = () => props.setScore(props.score - 5);
 
   return (
-    <div className="gameBoard" style={{ margin: "100px" }} onClick={removescore} width="1000px" height="1000px" padding="10px">
+    <div id="gameBoard" className="gameBoard" style={{ margin: "100px" }} onClick={removescore}>
       <div>score: {props.score}</div>
       <Target func={addscore} />
       <Target func={addscore} />
@@ -38,7 +41,11 @@ function Game(props) {
   );
 }
 
-// function stopCreation(myvar) {
-//   clearInterval(myvar);
-// }
+function generateRandomPosition() {
+  // const gameBoard = document.getElementById("gameBoard");
+  const x = Math.random() * (1000 - 77) + 77;
+  const y = Math.random() * (500 - 77) + 77;
+  console.log(x + " " + y);
+  return { x: x, y: y };
+}
 export default Game;
