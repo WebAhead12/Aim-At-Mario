@@ -53,7 +53,7 @@
 
 .lose {
   width: 1000px;
-  background: red;
+  background: rgb(223, 54, 54);
   height: 280px;
   margin: auto;
   justify-content: center;

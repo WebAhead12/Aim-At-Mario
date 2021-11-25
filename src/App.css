@@ -8,9 +8,11 @@ body::-webkit-scrollbar {
 }
 .startGame {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 40%;
+  left: 40%;
   border: solid 1px black;
   background-color: white;
-  padding: 5px;
+  font-family: "Orbitron", sans-serif;
+  padding: 50px;
+  font-size: 70px;
 }
