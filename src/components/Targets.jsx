@@ -22,7 +22,17 @@ function Target({ hehe, func }) {
 
 function Game(props) {
   if (props.score < 0) {
-    return <div>end game</div>;
+    return (
+      <div className="lose">
+        <div className="gameOver">Game Over</div>
+        <a className="startOver" href="/">
+          Start Over
+        </a>
+      </div>
+    );
+  }
+  function Miss() {
+    return <div className="miss">no</div>;
   }
   const addscore = () => props.setScore(props.score + 5);
   const removescore = () => props.setScore(props.score - 5);
@@ -37,16 +47,13 @@ function Game(props) {
         height="1000px"
         padding="10px"
       >
-        <div>score: {props.score}</div>
+        <div className="score">score: {props.score}</div>
         <Target func={addscore} />
         <Target func={addscore} />
         <Target func={addscore} />
         <Target func={addscore} />
         <Target func={addscore} />
         <Target func={addscore} />
-      </div>
-      <div className="onScreenGun">
-        <img src={`images/${props.gun}`}></img>
       </div>
     </div>
   );

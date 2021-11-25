@@ -14,7 +14,7 @@ function CreateWeapon(props) {
       <img
         onClick={() => {
           props.setGun(gun);
-          console.log(props.currentgun);
+          props.setShown(!props.shown);
         }}
         className="weapon"
         key={gun}
