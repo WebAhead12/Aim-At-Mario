@@ -52,11 +52,15 @@
   left: 35%;
 }
 
-.lose {
+.lose,
+.win {
   width: 1000px;
   background: rgb(223, 54, 54);
   height: 280px;
   margin: auto;
   justify-content: center;
   text-align: center;
+}
+.win {
+  background: rgb(79, 216, 25);
 }

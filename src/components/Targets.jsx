@@ -1,7 +1,7 @@
 import React from "react";
 import "./target.css";
 
-function Target({ func, delay, id, setArr }) {
+function Target({ func, removescore, delay, id, setArr }) {
   const [show, setShow] = React.useState(true);
   const position = React.useState(generateRandomPosition())[0];
   console.log(id);
@@ -12,6 +12,7 @@ function Target({ func, delay, id, setArr }) {
     }, delay);
   }, [delay]);
   if (!show) {
+    removescore();
     return "";
   }
 
@@ -60,7 +61,7 @@ function Game(props) {
   }
   if (props.score == 30) {
     return (
-      <div className="lose">
+      <div className="win">
         <div className="gameOver">You Won</div>
         <a className="startOver" href="/">
           Play Again
@@ -68,9 +69,9 @@ function Game(props) {
       </div>
     );
   }
-  function Miss() {
-    return <div className="miss">no</div>;
-  }
+  // function Miss() {
+  //   return <div className="miss">no</div>;
+  // }
   const addscore = () => props.setScore((prevScore) => prevScore + 5);
   const removescore = () => props.setScore((prevScore) => prevScore - 5);
 
@@ -80,7 +81,7 @@ function Game(props) {
         <div>score: {props.score}</div>
         {arr
           ? arr.map((Element, index) => {
-              return <Element id={index} key={index}></Element>;
+              return <Element removescore={removescore} id={index} key={index}></Element>;
             })
           : null}
       </div>
