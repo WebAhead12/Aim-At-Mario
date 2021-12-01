@@ -50,15 +50,7 @@ function Game(props) {
             clearInterval(intervalRef.current);
             return prevArr;
           } else {
-            return prevArr.concat((props) => (
-              <Target
-                func={addscore}
-                {...props}
-                arr={arr}
-                setArr={setArr}
-                delay={3000}
-              />
-            ));
+            return prevArr.concat((props) => <Target func={addscore} {...props} arr={arr} setArr={setArr} delay={3000} />);
           }
         }
       });
@@ -106,13 +98,7 @@ function Game(props) {
         <div>score: {props.score}</div>
         {arr
           ? arr.map((Element, index) => {
-              return (
-                <Element
-                  removescore={removescore}
-                  id={index}
-                  key={index}
-                ></Element>
-              );
+              return <Element removescore={removescore} id={index} key={index}></Element>;
             })
           : null}
       </div>

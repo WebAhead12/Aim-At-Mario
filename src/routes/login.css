@@ -5,18 +5,74 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  padding: 5px;
+  /* padding: 5px; */
   transform: translateX(-50%) translateY(-50%);
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   width: 50vh;
+  padding-bottom: 5px;
   border: 1px solid black;
   border-radius: 5px;
   background-color: rgba(240, 230, 230, 0.61);
 }
+.userDetails {
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.logo {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.719);
+  font-size: 50px;
+  color: white;
+  text-align: center;
+}
 input {
+  outline: none;
   background-color: rgba(240, 230, 230, 0.61);
   border: none;
   margin: 5px;
   width: 75%;
+  font-size: 20px;
+}
+.hideConfirmPassword {
+  display: none;
+}
+
+.buttons {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 75%;
+}
+
+.login,
+.register {
+  cursor: pointer;
+  background-color: rgba(255, 180, 42, 0.877);
+  padding: 5px;
+  border: 1px black solid;
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.96);
+}
+.login:hover,
+.register:hover {
+  background-color: rgba(233, 165, 39, 0.637);
+}
+.loginOn,
+.registerOn {
+  cursor: pointer;
+  background-color: #f3404b;
+  padding: 5px;
+  border: 1px black solid;
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.96);
+}
+.loginOn:hover,
+.registerOn :hover {
+  background-color: #f3404ca8;
 }
