@@ -13,7 +13,7 @@ function App() {
   let { user } = useParams();
 
   // if (!token) {
-  //   navigate("login");
+  //   navigate("/");
   // }
   return (
     <div>
@@ -28,12 +28,7 @@ function App() {
         )}
       </div>
       <div className="weaponSelector">
-        <WeaponSelector
-          shown={shown}
-          setShown={setShown}
-          count={count}
-          setCount={setCount}
-        ></WeaponSelector>
+        <WeaponSelector shown={shown} setShown={setShown} count={count} setCount={setCount}></WeaponSelector>
       </div>
     </div>
   );
