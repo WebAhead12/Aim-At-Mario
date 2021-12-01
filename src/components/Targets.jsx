@@ -69,24 +69,17 @@ function Game(props) {
       </div>
     );
   }
-  if (props.score == 30) {
-    return (
-      <div className="win">
-        <div className="gameOver">You Won</div>
-        <a className="startOver" href="/">
-          Play Again
-        </a>
-      </div>
-    );
-  }
-  // function Miss() {
-  //   return <div className="miss">no</div>;
-  // }
+
   const addscore = () => props.setScore((prevScore) => prevScore + 5);
   const removescore = () => props.setScore((prevScore) => prevScore - 5);
 
   return (
-    <div>
+    <div className="allGame">
+      <div>
+        <h1>Aim At Mario</h1>
+      </div>
+      <div className="score">score: {props.score}</div>
+
       <div
         className="gameBoard"
         style={{ margin: "100px" }}
@@ -95,7 +88,6 @@ function Game(props) {
           removescore();
         }}
       >
-        <div>score: {props.score}</div>
         {arr
           ? arr.map((Element, index) => {
               return <Element removescore={removescore} id={index} key={index}></Element>;
@@ -108,8 +100,8 @@ function Game(props) {
 
 function generateRandomPosition() {
   // const gameBoard = document.getElementById("gameBoard");
-  const x = Math.random() * (1000 - 77);
-  const y = Math.random() * (500 - 77);
+  const x = Math.random() * (500 - 77);
+  const y = Math.random() * (400 - 77);
 
   return { x: x, y: y };
 }
