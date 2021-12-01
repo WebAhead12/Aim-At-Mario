@@ -1,4 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:regular,bold,italic&subset=latin,latin-ext");
+@import url("https://fonts.googleapis.com/css2?family=Mr+Dafoe&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Exo:wght@900&display=swap");
+
 .allGame {
   margin: auto;
   width: 40%;
@@ -52,24 +55,39 @@ h1 {
   font-size: 100px;
   text-align: center;
   margin-top: 15%;
+  color: rgb(65, 65, 65);
 }
 
-.startOver {
+.startOver,
+.startOver:link,
+.startOver:visited,
+.startOver:active {
   font-family: "Orbitron", sans-serif;
   font-size: 80px;
   position: absolute;
-  left: 35%;
+  left: 28%;
+  color: rgb(65, 65, 65);
+  transition: 500ms;
+}
+.startOver:hover {
+  color: rgb(166, 166, 199);
 }
 
-.lose,
-.win {
-  width: 1000px;
-  background: rgb(223, 54, 54);
+.lose {
+  width: 90%;
   height: 280px;
   margin: auto;
-  justify-content: center;
+  border-radius: 2px;
   text-align: center;
-}
-.win {
-  background: rgb(79, 216, 25);
+  z-index: 2;
+  font-size: 10em;
+  letter-spacing: 15px;
+  text-transform: uppercase;
+  transform: rotate(-10deg);
+  text-shadow: 1px 1px hsl(50, 50%, 45%), 2px 2px hsl(50, 50%, 40%),
+    3px 3px hsl(50, 50%, 35%), 4px 4px hsl(50, 50%, 34%),
+    5px 5px hsl(50, 50%, 33%), 6px 6px hsl(50, 50%, 32%),
+    7px 7px hsl(50, 50%, 31%), 8px 8px hsl(50, 50%, 30%),
+    9px 9px hsl(50, 50%, 29%), 10px 10px hsl(50, 50%, 28%),
+    10px 10px 30px rgba(0, 0, 0, 0.7);
 }

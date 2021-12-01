@@ -3,6 +3,8 @@ import React from "react";
 import { useNavigate, useParams } from "react-router";
 import WeaponSelector from "../components/WeaponSelector.jsx";
 import Game from "../components/Targets.jsx";
+// import Highscore from "../components/Highscore.jsx";
+
 function App() {
   const [shown, setShown] = React.useState(false); //toggleWeapoinSelector
   const [score, setScore] = React.useState(0); //keeping track of score
@@ -34,6 +36,7 @@ function App() {
           setCount={setCount}
         ></WeaponSelector>
       </div>
+      {/* <Highscore /> */}
     </div>
   );
 }
