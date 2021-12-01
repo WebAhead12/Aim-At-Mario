@@ -47,6 +47,7 @@
 }
 
 .currentGun {
+  pointer-events: none;
   margin: auto;
   left: 63%;
   bottom: 2%;

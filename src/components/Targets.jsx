@@ -1,10 +1,17 @@
 import React from "react";
 import "./target.css";
+import { missShot, randomHitSounds } from "./soundEffect";
 
 function Target({ func, removescore, delay, id, setArr }) {
   const [show, setShow] = React.useState(true);
   const position = React.useState(generateRandomPosition())[0];
+  const [sound, setSound] = React.useState(null);
   console.log(id);
+
+  React.useEffect(() => {
+    if (!sound) return;
+    sound.play();
+  }, [sound]);
 
   React.useEffect(() => {
     setTimeout(() => {
@@ -22,8 +29,11 @@ function Target({ func, removescore, delay, id, setArr }) {
       className="Target"
       onClick={(e) => {
         e.stopPropagation();
-        setArr((prevArr) => prevArr.filter((element, idx) => idx !== id));
-        func();
+        setSound(new Audio(randomHitSounds()));
+        setTimeout(() => {
+          setArr((prevArr) => prevArr.filter((element, idx) => idx !== id));
+          func();
+        }, 0);
       }}
     ></div>
   );
@@ -40,7 +50,15 @@ function Game(props) {
             clearInterval(intervalRef.current);
             return prevArr;
           } else {
-            return prevArr.concat((props) => <Target func={addscore} {...props} arr={arr} setArr={setArr} delay={3000} />);
+            return prevArr.concat((props) => (
+              <Target
+                func={addscore}
+                {...props}
+                arr={arr}
+                setArr={setArr}
+                delay={3000}
+              />
+            ));
           }
         }
       });
@@ -77,11 +95,24 @@ function Game(props) {
 
   return (
     <div>
-      <div className="gameBoard" style={{ margin: "100px" }} onClick={removescore}>
+      <div
+        className="gameBoard"
+        style={{ margin: "100px" }}
+        onClick={() => {
+          missShot.play();
+          removescore();
+        }}
+      >
         <div>score: {props.score}</div>
         {arr
           ? arr.map((Element, index) => {
-              return <Element removescore={removescore} id={index} key={index}></Element>;
+              return (
+                <Element
+                  removescore={removescore}
+                  id={index}
+                  key={index}
+                ></Element>
+              );
             })
           : null}
       </div>
