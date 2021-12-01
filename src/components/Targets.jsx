@@ -67,12 +67,11 @@ function Game(props) {
 
     return () => clearInterval(intervalRef.current);
   }, []);
-  const href = "/" + window.localStorage.getItem("id");
   if (props.score < 0) {
     return (
       <div className="lose">
         <div className="gameOver">Game Over</div>
-        <a className="startOver" href={href}>
+        <a className="startOver" href="/">
           Start Over
         </a>
       </div>
