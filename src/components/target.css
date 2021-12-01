@@ -1,5 +1,25 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:regular,bold,italic&subset=latin,latin-ext");
-
+.allGame {
+  margin: auto;
+  width: 40%;
+  display: flex;
+  height: 700px;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid rgba(255, 255, 255, 0.295);
+  flex-direction: column;
+  padding: 30px;
+  margin-top: 3%;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.329);
+  position: relative;
+}
+h1 {
+  text-align: center;
+  font-family: "Orbitron", sans-serif;
+  font-size: 50px;
+  margin-bottom: 20px;
+}
 .Target {
   position: absolute;
   border: 2px solid black;
@@ -8,41 +28,30 @@
   height: 75px;
   background-size: 100% 100%;
   margin-left: 10px;
-  position: absolute;
   background-image: url("https://avatars.githubusercontent.com/u/24195641?v=4");
 }
 
 .gameBoard {
   background-blend-mode: soft-light, normal;
   position: relative;
-  margin: auto;
-  left: 15%;
-  border: 2px solid grey;
-  height: 500px;
-  width: 1000px;
-  background-color: rgb(73, 73, 184);
-}
-
-.gameBoard:nth-child(2) {
-  left: 10px;
-  top: 20px;
+  border: 2px solid rgb(211, 201, 201);
+  height: 90%;
+  width: 100%;
+  background-color: rgb(110, 110, 161);
+  border-radius: 10px;
 }
 
 .score {
   font-family: "Orbitron", sans-serif;
-  position: absolute;
-  left: 40%;
-  font-size: 40px;
-  z-index: 10;
+  font-size: 20px;
+  pointer-events: none;
+  margin-bottom: -60px;
 }
 .gameOver {
   font-family: "Orbitron", sans-serif;
   font-size: 100px;
   text-align: center;
   margin-top: 15%;
-  /* position: absolute;
-  bottom: 50%;
-  left: 35%; */
 }
 
 .startOver {

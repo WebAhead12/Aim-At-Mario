@@ -42,41 +42,41 @@ function Target({ func, removescore, delay, id, setArr }) {
 function Game(props) {
   const [arr, setArr] = React.useState([]);
   const intervalRef = React.useRef();
-  React.useEffect(() => {
-    const interval = setInterval(() => {
-      setArr((prevArr) => {
-        if (prevArr) {
-          if (prevArr.length >= 3) {
-            clearInterval(intervalRef.current);
-            return prevArr;
-          } else {
-            return prevArr.concat((props) => (
-              <Target
-                func={addscore}
-                {...props}
-                arr={arr}
-                setArr={setArr}
-                delay={3000}
-              />
-            ));
-          }
-        }
-      });
-    }, 1000);
-    intervalRef.current = interval;
+  // React.useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setArr((prevArr) => {
+  //       if (prevArr) {
+  //         if (prevArr.length >= 3) {
+  //           clearInterval(intervalRef.current);
+  //           return prevArr;
+  //         } else {
+  //           return prevArr.concat((props) => (
+  //             <Target
+  //               func={addscore}
+  //               {...props}
+  //               arr={arr}
+  //               setArr={setArr}
+  //               delay={3000}
+  //             />
+  //           ));
+  //         }
+  //       }
+  //     });
+  //   }, 1000);
+  //   intervalRef.current = interval;
 
-    return () => clearInterval(intervalRef.current);
-  }, []);
-  if (props.score < 0) {
-    return (
-      <div className="lose">
-        <div className="gameOver">Game Over</div>
-        <a className="startOver" href="/">
-          Start Over
-        </a>
-      </div>
-    );
-  }
+  //   return () => clearInterval(intervalRef.current);
+  // }, []);
+  // if (props.score < 0) {
+  //   return (
+  //     <div className="lose">
+  //       <div className="gameOver">Game Over</div>
+  //       <a className="startOver" href="/">
+  //         Start Over
+  //       </a>
+  //     </div>
+  //   );
+  // }
   if (props.score == 30) {
     return (
       <div className="win">
@@ -94,7 +94,12 @@ function Game(props) {
   const removescore = () => props.setScore((prevScore) => prevScore - 5);
 
   return (
-    <div>
+    <div className="allGame">
+      <div>
+        <h1>Aim At Mario</h1>
+      </div>
+      <div className="score">score: {props.score}</div>
+
       <div
         className="gameBoard"
         style={{ margin: "100px" }}
@@ -103,7 +108,6 @@ function Game(props) {
           removescore();
         }}
       >
-        <div>score: {props.score}</div>
         {arr
           ? arr.map((Element, index) => {
               return (
