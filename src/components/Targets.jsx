@@ -1,7 +1,7 @@
 import React from "react";
 import "./target.css";
 import { missShot, randomHitSounds } from "./soundEffect";
-
+import { fetchstats, setHighscore } from "./functions.js";
 function Target({ func, delay, id, setArr }) {
   const [show, setShow] = React.useState(true);
   const position = React.useState(generateRandomPosition())[0];
@@ -66,18 +66,14 @@ function Game(props) {
     return () => clearInterval(intervalRef.current);
   }, []);
   if (props.miss == 3) {
-    // fetch("http://localhost:4007/:user/stats") //user
-    //   .then((res) => {
-    //     if (!res.ok) {
-    //       const error = new Error("HTTP error");
-    //       error.status = res.status;
-    //       throw error;
-    //     } else {
-    //       return res.json();
-    //     }
-    //   })
-    //   .then((stats) => {
-    //     console.log(stats);
+    url = searchParams.get;
+    token = window.localStorage.getItem("access_token");
+    fetchstats(token).then((stats) => {
+      if (stats < props.score) {
+        setHighscore(props.score, token);
+      }
+    });
+
     return (
       <div>
         <div className="lose">
@@ -89,7 +85,6 @@ function Game(props) {
         <h1 className="scorelost">Score:{props.score}</h1>
       </div>
     );
-    // });
   }
 
   const addscore = () => {
