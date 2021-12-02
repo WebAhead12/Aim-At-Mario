@@ -3,11 +3,12 @@ import React from "react";
 import { useNavigate, useParams } from "react-router";
 import WeaponSelector from "../components/WeaponSelector.jsx";
 import Game from "../components/Targets.jsx";
-// import Highscore from "../components/Highscore.jsx";
+import Highscore from "../components/Highscore.jsx";
 
 function App() {
   const [shown, setShown] = React.useState(false); //toggleWeapoinSelector
   const [score, setScore] = React.useState(0); //keeping track of score
+  const [miss, setMiss] = React.useState(0); //keeping track of score
   const [count, setCount] = React.useState(0);
   const [startGame, setStartGame] = React.useState(false);
   let navigate = useNavigate();
@@ -21,7 +22,12 @@ function App() {
     <div>
       <div className="target">
         {startGame ? (
-          <Game score={score} setScore={setScore} />
+          <Game
+            score={score}
+            setScore={setScore}
+            miss={miss}
+            setMiss={setMiss}
+          />
         ) : (
           <div className="startGame" onClick={() => setStartGame(!startGame)}>
             Start
@@ -36,7 +42,7 @@ function App() {
           setCount={setCount}
         ></WeaponSelector>
       </div>
-      {/* <Highscore /> */}
+      {startGame ? <Highscore /> : ""}
     </div>
   );
 }

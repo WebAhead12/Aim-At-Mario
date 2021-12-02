@@ -2,11 +2,10 @@ import React from "react";
 import "./target.css";
 import { missShot, randomHitSounds } from "./soundEffect";
 
-function Target({ func, removescore, delay, id, setArr }) {
+function Target({ func, delay, id, setArr }) {
   const [show, setShow] = React.useState(true);
   const position = React.useState(generateRandomPosition())[0];
   const [sound, setSound] = React.useState(null);
-  console.log(id);
 
   React.useEffect(() => {
     if (!sound) return;
@@ -19,7 +18,6 @@ function Target({ func, removescore, delay, id, setArr }) {
     }, delay);
   }, [delay]);
   if (!show) {
-    removescore();
     return "";
   }
 
@@ -46,40 +44,53 @@ function Game(props) {
     const interval = setInterval(() => {
       setArr((prevArr) => {
         if (prevArr) {
-          if (prevArr.length >= 3) {
-            clearInterval(intervalRef.current);
-            return prevArr;
-          } else {
-            return prevArr.concat((props) => (
-              <Target
-                func={addscore}
-                {...props}
-                arr={arr}
-                setArr={setArr}
-                delay={3000}
-              />
-            ));
-          }
+          return prevArr.concat((props) => (
+            <Target
+              func={addscore}
+              {...props}
+              arr={arr}
+              setArr={setArr}
+              delay={3000}
+            />
+          ));
         }
       });
-    }, 1000);
+    }, 500);
     intervalRef.current = interval;
 
     return () => clearInterval(intervalRef.current);
   }, []);
-  if (props.score < 0) {
+  if (props.miss == 3) {
+    // fetch("http://localhost:4007/:user/stats") //user
+    //   .then((res) => {
+    //     if (!res.ok) {
+    //       const error = new Error("HTTP error");
+    //       error.status = res.status;
+    //       throw error;
+    //     } else {
+    //       return res.json();
+    //     }
+    //   })
+    //   .then((stats) => {
+    //     console.log(stats);
     return (
-      <div className="lose">
-        <div className="gameOver">Game Over</div>
-        <a className="startOver" href="/">
-          Start Over
-        </a>
+      <div>
+        <div className="lose">
+          <div className="gameOver">Game Over</div>
+          <a className="startOver" href="/">
+            Start Over
+          </a>
+        </div>
+        <h1 className="scorelost">Score:{props.score}</h1>
       </div>
     );
+    // });
   }
 
-  const addscore = () => props.setScore((prevScore) => prevScore + 5);
-  const removescore = () => props.setScore((prevScore) => prevScore - 5);
+  const addscore = () => {
+    props.setScore((prevScore) => prevScore + 5);
+  };
+  const addMiss = () => props.setMiss((prevMiss) => prevMiss + 1);
 
   return (
     <div className="allGame">
@@ -87,23 +98,20 @@ function Game(props) {
         <h1>Aim At Mario</h1>
       </div>
       <div className="score">score: {props.score}</div>
+      <div className="score">lives: {3 - props.miss}</div>
 
       <div
         className="gameBoard"
         style={{ margin: "100px" }}
         onClick={() => {
           missShot.play();
-          removescore();
+          addMiss();
         }}
       >
         {arr
           ? arr.map((Element, index) => {
               return (
-                <Element
-                  removescore={removescore}
-                  id={index}
-                  key={index}
-                ></Element>
+                <Element addMiss={addMiss} id={index} key={index}></Element>
               );
             })
           : null}
