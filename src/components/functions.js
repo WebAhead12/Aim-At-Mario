@@ -1,5 +1,6 @@
 export function fetchstats(user) {
-  return fetch(`http://localhost:4007/${user}/stats`) //user
+  p;
+  return fetch(`${proccess.env.REACT_APP_API}${user}/stats`) //user
     .then((res) => {
       if (!res.ok) {
         const error = new Error("HTTP error");
@@ -15,7 +16,7 @@ export function fetchstats(user) {
     });
 }
 export function setHighscore(score, user) {
-  return fetch(`http://localhost:4007/${user}/stats`, {
+  return fetch(`${proccess.env.REACT_APP_API}${user}/stats`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
