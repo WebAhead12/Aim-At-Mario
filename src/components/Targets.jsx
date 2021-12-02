@@ -48,15 +48,7 @@ function Game(props) {
             clearInterval(intervalRef.current);
             return prevArr;
           } else {
-            return prevArr.concat((props) => (
-              <Target
-                func={addscore}
-                {...props}
-                arr={arr}
-                setArr={setArr}
-                delay={3000}
-              />
-            ));
+            return prevArr.concat((props) => <Target func={addscore} {...props} arr={arr} setArr={setArr} delay={3000} />);
           }
         }
       });
@@ -66,13 +58,13 @@ function Game(props) {
     return () => clearInterval(intervalRef.current);
   }, []);
   if (props.miss == 3) {
-    url = searchParams.get;
-    token = window.localStorage.getItem("access_token");
-    fetchstats(token).then((stats) => {
-      if (stats < props.score) {
-        setHighscore(props.score, token);
-      }
-    });
+    // url = searchParams.get;
+    // token = window.localStorage.getItem("access_token");
+    // fetchstats(token).then((stats) => {
+    //   if (stats < props.score) {
+    //     setHighscore(props.score, token);
+    //   }
+    // });
 
     return (
       <div>
@@ -110,9 +102,7 @@ function Game(props) {
       >
         {arr
           ? arr.map((Element, index) => {
-              return (
-                <Element addMiss={addMiss} id={index} key={index}></Element>
-              );
+              return <Element addMiss={addMiss} id={index} key={index}></Element>;
             })
           : null}
       </div>

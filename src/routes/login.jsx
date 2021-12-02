@@ -47,7 +47,7 @@ function Login() {
     check();
 
     if (confirmPassword === password && username && password && password.length >= 6) {
-      fetch("http://localhost:4007/register", {
+      fetch(process.env.REACT_APP_API + "/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(user),
@@ -69,7 +69,7 @@ function Login() {
     }
     check();
     if (password && username && password.length >= 6) {
-      fetch("http://localhost:4007/login", {
+      fetch(process.env.REACT_APP_API + "/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(user),
