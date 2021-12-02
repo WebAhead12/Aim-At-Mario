@@ -23,6 +23,10 @@ function Login() {
     WRONG_CONFIRMATION_PASSWORD: "Password confirmation does not match",
     ACCOUNT_CREATED: "Account created successfully",
   };
+  const token = window.localStorage.getItem("access_token");
+  if (token) {
+    navigate("/user");
+  }
   // check the details of the user
   const check = (str = "") => {
     if (!username) return setError(errObj.MISSING_USERNAME);
@@ -97,9 +101,9 @@ function Login() {
       </div>
       <div className="userDetails">
         <input type="text" placeholder="Username" className="username" value={username} onChange={(e) => setUsername(e.target.value)}></input>
-        <input type="text" placeholder="Password" className="password" value={password} onChange={(e) => setPassword(e.target.value)}></input>
+        <input type="password" placeholder="Password" className="password" value={password} onChange={(e) => setPassword(e.target.value)}></input>
         <input
-          type="text"
+          type="password"
           placeholder="ConfirmPassword"
           className={register ? "confirmPassword" : "hideConfirmPassword"}
           value={confirmPassword}
