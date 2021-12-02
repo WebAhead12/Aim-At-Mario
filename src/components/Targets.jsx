@@ -44,15 +44,20 @@ function Game(props) {
     const interval = setInterval(() => {
       setArr((prevArr) => {
         if (prevArr) {
-          return prevArr.concat((props) => (
-            <Target
-              func={addscore}
-              {...props}
-              arr={arr}
-              setArr={setArr}
-              delay={3000}
-            />
-          ));
+          if (prevArr.length >= 3) {
+            clearInterval(intervalRef.current);
+            return prevArr;
+          } else {
+            return prevArr.concat((props) => (
+              <Target
+                func={addscore}
+                {...props}
+                arr={arr}
+                setArr={setArr}
+                delay={3000}
+              />
+            ));
+          }
         }
       });
     }, 500);

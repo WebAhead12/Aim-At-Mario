@@ -13,11 +13,12 @@ function App() {
   const [startGame, setStartGame] = React.useState(false);
   let navigate = useNavigate();
   const token = window.localStorage.getItem("access_token");
-  let { user } = useParams();
+  React.useEffect(() => {
+    if (!token) {
+      navigate("/");
+    }
+  }, []);
 
-  // if (!token) {
-  //   navigate("/");
-  // }
   return (
     <div>
       <div className="target">
