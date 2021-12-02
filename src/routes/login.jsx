@@ -23,6 +23,10 @@ function Login() {
     WRONG_CONFIRMATION_PASSWORD: "Password confirmation does not match",
     ACCOUNT_CREATED: "Account created successfully",
   };
+  const token = window.localStorage.getItem("access_token");
+  if (token) {
+    navigate("/user");
+  }
   // check the details of the user
   const check = (str = "") => {
     if (!username) return setError(errObj.MISSING_USERNAME);
@@ -47,7 +51,7 @@ function Login() {
     check();
 
     if (confirmPassword === password && username && password && password.length >= 6) {
-      fetch("http://localhost:4007/register", {
+      fetch(process.env.REACT_APP_API + "/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(user),
@@ -69,7 +73,7 @@ function Login() {
     }
     check();
     if (password && username && password.length >= 6) {
-      fetch("http://localhost:4007/login", {
+      fetch(process.env.REACT_APP_API + "/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(user),
@@ -97,9 +101,9 @@ function Login() {
       </div>
       <div className="userDetails">
         <input type="text" placeholder="Username" className="username" value={username} onChange={(e) => setUsername(e.target.value)}></input>
-        <input type="text" placeholder="Password" className="password" value={password} onChange={(e) => setPassword(e.target.value)}></input>
+        <input type="password" placeholder="Password" className="password" value={password} onChange={(e) => setPassword(e.target.value)}></input>
         <input
-          type="text"
+          type="password"
           placeholder="ConfirmPassword"
           className={register ? "confirmPassword" : "hideConfirmPassword"}
           value={confirmPassword}
