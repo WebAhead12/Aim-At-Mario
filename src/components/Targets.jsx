@@ -60,16 +60,16 @@ function Game(props) {
           }
         }
       });
-    }, 500);
+    }, 1000);
     intervalRef.current = interval;
 
     return () => clearInterval(intervalRef.current);
   }, []);
   if (props.miss == 3) {
-    url = searchParams.get;
-    token = window.localStorage.getItem("access_token");
+    const token = window.localStorage.getItem("access_token");
     fetchstats(token).then((stats) => {
-      if (stats < props.score) {
+      console.log(stats, "front");
+      if (stats.highscore < props.score) {
         setHighscore(props.score, token);
       }
     });
@@ -78,7 +78,7 @@ function Game(props) {
       <div>
         <div className="lose">
           <div className="gameOver">Game Over</div>
-          <a className="startOver" href="/">
+          <a className="startOver" href="/user">
             Start Over
           </a>
         </div>

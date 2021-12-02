@@ -5,15 +5,7 @@ import "./highscore.css";
 function getHighscore(token) {
   // GET
 
-  return fetch(
-    "http://localhost:4007/scoreboard"
-    // ,
-
-    // {
-    // method: "GET",
-    // headers: { authorization: `Bearer ${token}` },
-    // }
-  ).then((res) => {
+  return fetch(`${process.env.REACT_APP_API}/scoreboard`).then((res) => {
     if (!res.ok) {
       const error = new Error("HTTP error");
       error.status = res.status;
@@ -29,19 +21,19 @@ const Highscore = (props) => {
 
   React.useEffect(() => {
     getHighscore(token).then((response) => {
-      setArray(response.map((score) => score.highscore));
+      setArray(response.map((score) => score));
     });
   }, []);
-
+  console.log("array", array);
   return (
     <div className="gameboard">
       <h1>LeaderScore</h1>
       <div className="top10">
         {array.map((s, index) => (
-          <div className="stats">
+          <div className="stats" key={index}>
             <div>
-              <span className="position">{index + 1}. </span>
-              <span className="scoreP"> {s}</span>
+              <span className="position">{s.username}. </span>
+              <span className="scoreP"> {s.highscore} pts</span>
             </div>
           </div>
         ))}

@@ -1,6 +1,7 @@
-export function fetchstats(user) {
-  p;
-  return fetch(`${proccess.env.REACT_APP_API}${user}/stats`) //user
+export function fetchstats(token) {
+  return fetch(`${process.env.REACT_APP_API}/stats`, {
+    headers: { authorization: `Bearer ${token}` },
+  }) //user
     .then((res) => {
       if (!res.ok) {
         const error = new Error("HTTP error");
@@ -15,25 +16,24 @@ export function fetchstats(user) {
       return stats;
     });
 }
-export function setHighscore(score, user) {
-  return fetch(`${proccess.env.REACT_APP_API}${user}/stats`, {
+export function setHighscore(score, token) {
+  console.log("post");
+
+  return fetch(`${process.env.REACT_APP_API}/stats`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
     },
-    body: { highscore: score },
-  })
-    .then((res) => {
-      if (!res.ok) {
-        const error = new Error("HTTP error");
-        error.status = res.status;
-        throw error;
-      } else {
-        return res.json();
-      }
-    })
-    .then((stats) => {
-      console.log(stats);
-      return stats;
-    });
+    body: JSON.stringify({ highscore: score }),
+  }).then((res) => {
+    console.log(res, "res");
+    if (!res.ok) {
+      const error = new Error("HTTP error");
+      error.status = res.status;
+      throw error;
+    } else {
+      return res.json();
+    }
+  });
 }
